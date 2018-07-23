@@ -10,3 +10,6 @@ This Application show the News using API from https://newsapi.org
 
 ## Author
 Andri Suranta Ginting
+
+
+https://github.com/andriiginting/news-app/blob/master/LICENSE
