@@ -12,4 +12,4 @@ This Application show the News using API from https://newsapi.org
 Andri Suranta Ginting
 
 
-[Apache License] (https://github.com/andriiginting/news-app/blob/master/LICENSE)
+[Apache License](https://github.com/andriiginting/news-app/blob/master/LICENSE)
