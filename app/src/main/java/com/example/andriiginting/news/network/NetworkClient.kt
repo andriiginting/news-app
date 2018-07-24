@@ -25,7 +25,7 @@ class NetworkClient {
     private fun getClient(): OkHttpClient {
         return OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor())
-                .addInterceptor(defaultHttpClientt())
+                .addInterceptor(defaultHttpClient())
                 .connectTimeout(1, TimeUnit.MINUTES)
                 .build()
     }
@@ -37,7 +37,7 @@ class NetworkClient {
     }
 
     @Throws(IOException::class)
-    private fun defaultHttpClientt(): Interceptor {
+    private fun defaultHttpClient(): Interceptor {
         return Interceptor { chain ->
             val request = chain.request()
                     .newBuilder()
