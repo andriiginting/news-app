@@ -1,26 +1,26 @@
-package com.example.andriiginting.news.model.source
+package com.example.andriiginting.news.model
 
 import com.google.gson.annotations.SerializedName
 
 class Sources {
     @SerializedName("id")
-    var id: String? = null
+    var sourcesId: String? = null
 
     @SerializedName("name")
-    var name: String? = null
+    var sourcesName: String? = null
 
     @SerializedName("description")
-    var description: String? = null
+    var sourcesDescription: String? = null
 
     @SerializedName("url")
     var sourceUrl: String? = null
 
     @SerializedName("category")
-    var category: String? = null
+    var sourcesCategory: String? = null
 
     @SerializedName("language")
-    var language: String? = null
+    var sourcesLanguage: String? = null
 
     @SerializedName("country")
-    var country: String? = null
+    var sourcesCountry: String? = null
 }

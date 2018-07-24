@@ -1,12 +1,10 @@
-package com.example.andriiginting.news.model.source
+package com.example.andriiginting.news.model
 
 import com.google.gson.annotations.SerializedName
 
 class SourceResponse {
-    @SerializedName("status")
     var status: String? = null
 
-    @SerializedName("sources")
     var sources: List<Sources>? = null
 
 }
