@@ -1,6 +1,4 @@
-package com.example.andriiginting.news.model
-
-import com.google.gson.annotations.SerializedName
+package com.example.andriiginting.news.model.source
 
 class SourceResponse {
     var status: String? = null
