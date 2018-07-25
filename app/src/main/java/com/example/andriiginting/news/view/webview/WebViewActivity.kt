@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import com.example.andriiginting.news.R
 
 import kotlinx.android.synthetic.main.activity_web_view.*
@@ -62,7 +64,13 @@ class WebViewActivity : AppCompatActivity(), WebViewContract.View {
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun showWebView(url: String?) {
-        webview_article.loadUrl(url)
+        webview_article.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                view?.loadUrl(url)
+                view?.settings?.javaScriptEnabled = true
+                return true
+            }
+        }
         webview_article.settings.javaScriptEnabled = true
     }
 
@@ -70,6 +78,7 @@ class WebViewActivity : AppCompatActivity(), WebViewContract.View {
         when (item?.itemId) {
             android.R.id.home -> {
                 onBackPressed()
+                overridePendingTransition(R.anim.abc_slide_in_top, R.anim.abc_slide_out_bottom)
             }
         }
         return true
