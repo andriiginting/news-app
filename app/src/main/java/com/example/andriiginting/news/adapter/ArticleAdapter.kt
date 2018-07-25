@@ -52,7 +52,7 @@ class ArticleAdapter(private val listOfArticle: ArrayList<ArticleModel>)
                             }
 
                             override fun onError(e: Exception?) {
-                                loadingSpinner.visibility = View.VISIBLE
+                                loadingSpinner.visibility = View.GONE
                             }
 
                         })
@@ -68,7 +68,7 @@ class ArticleAdapter(private val listOfArticle: ArrayList<ArticleModel>)
                             }
 
                             override fun onError(e: Exception?) {
-                                loadingSpinner.visibility = View.VISIBLE
+                                loadingSpinner.visibility = View.GONE
                             }
 
                         })
