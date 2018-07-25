@@ -3,6 +3,7 @@ package com.example.andriiginting.news.view
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import com.example.andriiginting.news.R
 
 import kotlinx.android.synthetic.main.activity_article.*
@@ -14,10 +15,21 @@ class ArticleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_article)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+            }
+        }
+        return true
+
+    }
+
+    companion object {
+        val NEWS_NAME = "newsName"
+        val 
+    }
 }
