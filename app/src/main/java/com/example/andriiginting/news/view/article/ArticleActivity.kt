@@ -3,8 +3,10 @@ package com.example.andriiginting.news.view.article
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.SearchView
 import com.example.andriiginting.news.R
 import com.example.andriiginting.news.adapter.ArticleAdapter
 import com.example.andriiginting.news.model.article.ArticleModel
@@ -12,7 +14,8 @@ import com.example.andriiginting.news.model.article.ArticleModel
 import kotlinx.android.synthetic.main.activity_article.*
 import kotlinx.android.synthetic.main.content_article.*
 
-class ArticleActivity : AppCompatActivity(), ArticleContract.View {
+class ArticleActivity : AppCompatActivity(), ArticleContract.View, SearchView.OnQueryTextListener {
+
 
     lateinit var newsName: String
     lateinit var newsDomain: String
@@ -59,6 +62,18 @@ class ArticleActivity : AppCompatActivity(), ArticleContract.View {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main,menu)
+
+        val searchItem = menu?.findItem(R.id.action_search)
+        val searchView: SearchView = searchItem?.actionView as SearchView
+
+        searchView.queryHint = resources.getString(R.string.search_hint)
+        searchView.setOnQueryTextListener(this)
+
+        return true
+    }
+
     override fun showLoading() {
         progbar_news_article.visibility = View.VISIBLE
     }
@@ -73,6 +88,15 @@ class ArticleActivity : AppCompatActivity(), ArticleContract.View {
 
     override fun setToolbarSubtitle(subtitle: String?) {
         supportActionBar?.subtitle = subtitle
+    }
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        adapter.filter.filter(newText)
+        adapter.notifyDataSetChanged()
+        return false
     }
 
     companion object {
