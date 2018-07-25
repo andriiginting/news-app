@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import com.example.andriiginting.news.R
 import com.example.andriiginting.news.adapter.SourcesAdapter
@@ -29,13 +28,13 @@ class MainActivity : AppCompatActivity(), SourceContract.View {
         setSupportActionBar(toolbar)
 
         listOfSource = ArrayList()
-        sourcePresenter = ImpSourcePresenter(this, listOfSource,applicationContext)
         adapter = SourcesAdapter(listOfSource)
+        sourcePresenter = ImpSourcePresenter(this,applicationContext,adapter)
 
         sourcePresenter.attempToGetListOfSource("en","us",listOfSource)
 
-        val layoutManager = LinearLayoutManager(this)
-        recycler_news_source.layoutManager = layoutManager
+        recycler_news_source.setHasFixedSize(true)
+        recycler_news_source.layoutManager = LinearLayoutManager(this)
         recycler_news_source.adapter = adapter
         adapter.notifyDataSetChanged()
     }

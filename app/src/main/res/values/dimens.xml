@@ -1,3 +1,8 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="corner_radius_card">7dp</dimen>
+    <dimen name="card_elevation">6dp</dimen>
+    <dimen name="margin_standard">10dp</dimen>
+    <dimen name="title_card_news_size">18sp</dimen>
+    <dimen name="padding_title_text">7dp</dimen>
 </resources>

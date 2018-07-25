@@ -3,6 +3,7 @@ package com.example.andriiginting.news.view.sources
 import android.content.Context
 import android.util.Log
 import android.util.TypedValue
+import com.example.andriiginting.news.adapter.SourcesAdapter
 import com.example.andriiginting.news.model.sources.Source
 import com.example.andriiginting.news.network.NetworkClient
 import com.example.andriiginting.news.network.NetworkRoutesInterface
@@ -12,21 +13,19 @@ import io.reactivex.schedulers.Schedulers
 import java.io.IOException
 
 class ImpSourcePresenter(sourceView: SourceContract.View,
-                         listOfSources: ArrayList<Source>,
-                         context: Context) : SourceContract.Presenter {
+                         context: Context, adapter: SourcesAdapter) : SourceContract.Presenter {
 
     private var view: SourceContract.View? = null
     private var request = NetworkClient()
             .getRetrofitClient()
             .create(NetworkRoutesInterface::class.java)
     private var context: Context? = null
-
-    private var listOfSources: ArrayList<Source>? = null
+    private  var adapter: SourcesAdapter? = null
 
     init {
         view = sourceView
-        this.listOfSources = listOfSources
         this.context = context
+        this.adapter = adapter
     }
 
     override fun attempToGetListOfSource(language: String, country: String,
@@ -64,6 +63,7 @@ class ImpSourcePresenter(sourceView: SourceContract.View,
                                                 result.sourcesLanguage.toString(),
                                                 result.sourcesCountry.toString()))
                             }
+                            adapter?.notifyDataSetChanged()
                             Log.d("response-source", listOfSources.toString())
                             view?.hideLoadingProgressBar()
                         }

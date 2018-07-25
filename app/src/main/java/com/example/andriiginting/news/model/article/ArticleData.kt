@@ -2,7 +2,7 @@ package com.example.andriiginting.news.model.article
 
 import com.google.gson.annotations.SerializedName
 
-class ArticleResponse {
+class ArticleData {
     @SerializedName("source")
     var articleSource: SourceArticleResponse? = null
 

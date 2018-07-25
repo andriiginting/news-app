@@ -1,9 +1,10 @@
 package com.example.andriiginting.news.model.article
 
-class ArticleModel(val source: List<SourceArticleModel>,
+data class ArticleModel(
                    val articleAuthor: String,
                    val articleTitle: String,
                    val articleDescription: String,
                    val articleUrl: String,
                    val articleImageUrl: String,
-                   val articlePublished: String)
+                   val articlePublished: String,
+                   val source: SourceArticleModel)

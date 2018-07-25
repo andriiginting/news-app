@@ -1,6 +1,6 @@
 package com.example.andriiginting.news.network
 
-import com.example.andriiginting.news.model.article.ArticleResponse
+import com.example.andriiginting.news.model.article.ArticlesResponse
 import com.example.andriiginting.news.model.sources.SourceResponse
 import io.reactivex.Observable
 import retrofit2.Response
@@ -14,7 +14,8 @@ interface NetworkRoutesInterface {
                       @Query("country") country: String)
             : Observable<Response<SourceResponse>>
 
-    @GET("v1/everything")
-    fun getListOfArticle(@Query("domain") domainUrl: String): Observable<Response<List<ArticleResponse>>>
+    @GET("v2/top-headlines")
+    fun getListOfArticle(@Query("sources") sourcesName: String)
+            : Observable<Response<ArticlesResponse>>
 
 }

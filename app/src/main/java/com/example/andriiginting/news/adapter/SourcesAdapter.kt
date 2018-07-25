@@ -10,6 +10,7 @@ import com.example.andriiginting.news.R
 import com.example.andriiginting.news.model.sources.Source
 import com.example.andriiginting.news.view.article.ArticleActivity
 import com.example.andriiginting.news.view.article.ArticleActivity.Companion.NEWS_DOMAIN
+import com.example.andriiginting.news.view.article.ArticleActivity.Companion.NEWS_ID
 import com.example.andriiginting.news.view.article.ArticleActivity.Companion.NEWS_NAME
 
 class SourcesAdapter(private val listOfSource: ArrayList<Source>)
@@ -32,6 +33,7 @@ class SourcesAdapter(private val listOfSource: ArrayList<Source>)
             val intent = Intent(v.context, ArticleActivity::class.java)
             intent.putExtra(NEWS_NAME,listOfSource[position].name)
             intent.putExtra(NEWS_DOMAIN,listOfSource[position].sourceUrl)
+            intent.putExtra(NEWS_ID,listOfSource[position].id)
             v.context.startActivity(intent)
         }
     }
