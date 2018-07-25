@@ -2,6 +2,7 @@ package com.example.andriiginting.news.view.webview
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -18,7 +19,7 @@ class WebViewActivity : AppCompatActivity(), WebViewContract.View {
     lateinit var webUrl: String
     lateinit var articleTitle: String
     private var progDialog: ProgressDialog? = null
-    private lateinit var  webPresenter: ImpWebViewPresenter
+    private lateinit var webPresenter: ImpWebViewPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +34,12 @@ class WebViewActivity : AppCompatActivity(), WebViewContract.View {
         setToolbarTitle(articleTitle)
         setToolbarSubtile(webUrl)
         showLoadingDialog()
-        webPresenter.loadWebView(webUrl,applicationContext)
+        webPresenter.loadWebView(webUrl, applicationContext)
 
     }
 
     override fun showLoadingDialog() {
-        if (progDialog == null){
+        if (progDialog == null) {
             progDialog = ProgressDialog(this)
             progDialog?.setMessage(getString(R.string.loading_indicator))
             progDialog?.isIndeterminate = true
@@ -64,13 +65,8 @@ class WebViewActivity : AppCompatActivity(), WebViewContract.View {
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun showWebView(url: String?) {
-        webview_article.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                view?.loadUrl(url)
-                view?.settings?.javaScriptEnabled = true
-                return true
-            }
-        }
+        webview_article.webViewClient = WebViewClient()
+        webview_article?.loadUrl(url)
         webview_article.settings.javaScriptEnabled = true
     }
 
