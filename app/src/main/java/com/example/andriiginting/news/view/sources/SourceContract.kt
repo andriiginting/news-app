@@ -1,6 +1,8 @@
 package com.example.andriiginting.news.view.sources
 
-import com.example.andriiginting.news.model.source.source.SourceResponse
+import android.content.Context
+import com.example.andriiginting.news.model.sources.Source
+import com.example.andriiginting.news.model.sources.SourceResponse
 import retrofit2.Response
 
 interface SourceContract {
@@ -9,13 +11,15 @@ interface SourceContract {
 
         fun hideLoadingProgressBar()
 
-        fun isNetworkConnected(): Boolean
-
         fun showErrorMessage(response :  Response<List<SourceResponse>>)
 
     }
 
     interface Presenter {
-        fun getListOfSources(language: String, country: String)
+        fun attempToGetListOfSource(language: String, country: String,listOfSources: ArrayList<Source>)
+
+        fun getListOfSources(language: String, country: String,listOfSources: ArrayList<Source>)
+
+        fun convertDpToPx(dp: Int,context: Context): Int?
     }
 }

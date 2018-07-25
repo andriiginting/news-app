@@ -1,4 +1,4 @@
-package com.example.andriiginting.news.model.source.source
+package com.example.andriiginting.news.model.sources
 
 data class Source(val id: String,
                   val name: String,

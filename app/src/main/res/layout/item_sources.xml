@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="6dp"
+    app:cardCornerRadius="6dp"
+    android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/name_news_source"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_placeholder"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:singleLine="true"
+            android:gravity="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+</android.support.v7.widget.CardView>

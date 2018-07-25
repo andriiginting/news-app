@@ -1,5 +1,5 @@
-package com.example.andriiginting.news.model.source.source
+package com.example.andriiginting.news.model.sources
 
 data class SourceModel(val status: String,
-                       val source: List<Source>)
+                       val source: List<Sources>)
 

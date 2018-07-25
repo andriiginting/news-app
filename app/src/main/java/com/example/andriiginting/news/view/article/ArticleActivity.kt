@@ -1,4 +1,4 @@
-package com.example.andriiginting.news.view
+package com.example.andriiginting.news.view.article
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -29,7 +29,7 @@ class ArticleActivity : AppCompatActivity() {
     }
 
     companion object {
-        val NEWS_NAME = "newsName"
-        val 
+        const val NEWS_NAME = "newsName"
+        const val NEWS_DOMAIN = "newsDomain"
     }
 }
