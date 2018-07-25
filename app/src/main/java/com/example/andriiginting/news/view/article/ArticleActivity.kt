@@ -18,9 +18,9 @@ class ArticleActivity : AppCompatActivity(), ArticleContract.View {
     lateinit var newsDomain: String
     lateinit var newsId: String
 
-    lateinit var articlePresenter: ImpArticlePresenter
-    lateinit var adapter: ArticleAdapter
-    lateinit var listArticle: ArrayList<ArticleModel>
+    private lateinit var articlePresenter: ImpArticlePresenter
+    private lateinit var adapter: ArticleAdapter
+    private lateinit var listArticle: ArrayList<ArticleModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
