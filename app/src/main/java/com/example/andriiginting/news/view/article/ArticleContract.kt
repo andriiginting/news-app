@@ -10,6 +10,10 @@ interface ArticleContract {
         fun hideLoading()
         fun setToolbarTitle(title: String?)
         fun setToolbarSubtitle(subtitle: String?)
+
+        fun showBottomSheet()
+
+        fun hideBottomSheet()
     }
 
     interface Presenter{

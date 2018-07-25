@@ -2,24 +2,23 @@ package com.example.andriiginting.news.view.webview
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
-import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.Snackbar
+import android.support.design.widget.BottomSheetDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.example.andriiginting.news.R
-
 import kotlinx.android.synthetic.main.activity_web_view.*
 import kotlinx.android.synthetic.main.content_web_view.*
 
 class WebViewActivity : AppCompatActivity(), WebViewContract.View {
 
+
     lateinit var webUrl: String
     lateinit var articleTitle: String
     private var progDialog: ProgressDialog? = null
     private lateinit var webPresenter: ImpWebViewPresenter
+    lateinit var dialog: BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +29,7 @@ class WebViewActivity : AppCompatActivity(), WebViewContract.View {
         webPresenter = ImpWebViewPresenter(this)
         webUrl = intent.getStringExtra(ARTICLE_WEB_URL)
         articleTitle = intent.getStringExtra(ARTICLE_NAME)
+        dialog = BottomSheetDialog(this)
 
         setToolbarTitle(articleTitle)
         setToolbarSubtile(webUrl)
@@ -79,6 +79,16 @@ class WebViewActivity : AppCompatActivity(), WebViewContract.View {
         }
         return true
 
+    }
+
+    override fun showBottomSheet() {
+        val view = layoutInflater.inflate(R.layout.bottom_sheet_dialog, null)
+        dialog.setContentView(view)
+        dialog.show()
+    }
+
+    override fun hideBottomSheet() {
+        dialog.dismiss()
     }
 
     companion object {

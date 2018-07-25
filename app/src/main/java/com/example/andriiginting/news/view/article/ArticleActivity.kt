@@ -1,6 +1,8 @@
 package com.example.andriiginting.news.view.article
 
 import android.os.Bundle
+import android.support.design.widget.BottomSheetDialog
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
@@ -10,7 +12,6 @@ import android.widget.SearchView
 import com.example.andriiginting.news.R
 import com.example.andriiginting.news.adapter.ArticleAdapter
 import com.example.andriiginting.news.model.article.ArticleModel
-
 import kotlinx.android.synthetic.main.activity_article.*
 import kotlinx.android.synthetic.main.content_article.*
 
@@ -20,6 +21,7 @@ class ArticleActivity : AppCompatActivity(), ArticleContract.View, SearchView.On
     lateinit var newsName: String
     lateinit var newsDomain: String
     lateinit var newsId: String
+    lateinit var dialog: BottomSheetDialog
 
     private lateinit var articlePresenter: ImpArticlePresenter
     private lateinit var adapter: ArticleAdapter
@@ -37,6 +39,7 @@ class ArticleActivity : AppCompatActivity(), ArticleContract.View, SearchView.On
 
         setToolbarTitle(newsName)
         setToolbarSubtitle(newsDomain)
+        dialog = BottomSheetDialog(this)
 
 
         listArticle = ArrayList()
@@ -97,6 +100,16 @@ class ArticleActivity : AppCompatActivity(), ArticleContract.View, SearchView.On
         adapter.filter.filter(newText)
         adapter.notifyDataSetChanged()
         return false
+    }
+
+    override fun showBottomSheet() {
+        val view = layoutInflater.inflate(R.layout.bottom_sheet_dialog,null)
+        dialog.setContentView(view)
+        dialog.show()
+    }
+
+    override fun hideBottomSheet() {
+        dialog.dismiss()
     }
 
     companion object {

@@ -13,6 +13,10 @@ interface WebViewContract {
         fun setToolbarSubtile(subtitle: String?)
 
         fun showWebView(url: String?)
+
+        fun showBottomSheet()
+
+        fun hideBottomSheet()
     }
 
     interface Presenter{
