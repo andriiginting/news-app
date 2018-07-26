@@ -13,10 +13,6 @@ interface SourceContract {
 
         fun showErrorMessage(response :  Response<List<SourceResponse>>)
 
-        fun showBottomSheet()
-
-        fun hideBottomSheet()
-
     }
 
     interface Presenter {

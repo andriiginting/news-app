@@ -14,9 +14,6 @@ interface WebViewContract {
 
         fun showWebView(url: String?)
 
-        fun showBottomSheet()
-
-        fun hideBottomSheet()
     }
 
     interface Presenter{

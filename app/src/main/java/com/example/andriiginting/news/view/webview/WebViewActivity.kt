@@ -81,16 +81,6 @@ class WebViewActivity : AppCompatActivity(), WebViewContract.View {
 
     }
 
-    override fun showBottomSheet() {
-        val view = layoutInflater.inflate(R.layout.bottom_sheet_dialog, null)
-        dialog.setContentView(view)
-        dialog.show()
-    }
-
-    override fun hideBottomSheet() {
-        dialog.dismiss()
-    }
-
     companion object {
         const val ARTICLE_WEB_URL = "webUrl"
         const val ARTICLE_NAME = "articleName"

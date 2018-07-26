@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.andriiginting.news">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -30,6 +31,17 @@
             android:name=".view.webview.WebViewActivity"
             android:label="@string/title_activity_web_view"
             android:theme="@style/webview"/>
+
+        <receiver
+            android:name=".utils.ConnectivityCheck"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+
+        </receiver>
+
     </application>
 
 </manifest>

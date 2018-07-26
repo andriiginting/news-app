@@ -21,7 +21,6 @@ class ArticleActivity : AppCompatActivity(), ArticleContract.View, SearchView.On
     lateinit var newsName: String
     lateinit var newsDomain: String
     lateinit var newsId: String
-    lateinit var dialog: BottomSheetDialog
 
     private lateinit var articlePresenter: ImpArticlePresenter
     private lateinit var adapter: ArticleAdapter
@@ -39,8 +38,6 @@ class ArticleActivity : AppCompatActivity(), ArticleContract.View, SearchView.On
 
         setToolbarTitle(newsName)
         setToolbarSubtitle(newsDomain)
-        dialog = BottomSheetDialog(this)
-
 
         listArticle = ArrayList()
         adapter = ArticleAdapter(listOfArticle = listArticle)
@@ -102,15 +99,15 @@ class ArticleActivity : AppCompatActivity(), ArticleContract.View, SearchView.On
         return false
     }
 
-    override fun showBottomSheet() {
-        val view = layoutInflater.inflate(R.layout.bottom_sheet_dialog,null)
-        dialog.setContentView(view)
-        dialog.show()
-    }
-
-    override fun hideBottomSheet() {
-        dialog.dismiss()
-    }
+//    override fun showBottomSheet() {
+//        val view = layoutInflater.inflate(R.layout.bottom_sheet_dialog,null)
+//        dialog.setContentView(view)
+//        dialog.show()
+//    }
+//
+//    override fun hideBottomSheet() {
+//        dialog.dismiss()
+//    }
 
     companion object {
         const val NEWS_NAME = "newsName"

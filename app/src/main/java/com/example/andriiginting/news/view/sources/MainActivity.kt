@@ -11,17 +11,18 @@ import com.example.andriiginting.news.adapter.SourcesAdapter
 import com.example.andriiginting.news.model.sources.Source
 import com.example.andriiginting.news.model.sources.SourceResponse
 import com.example.andriiginting.news.network.Error.ErrorHandler
+import com.example.andriiginting.news.view.BaseActivity
 import kotlinx.android.synthetic.main.activity_article.*
 import kotlinx.android.synthetic.main.content_main.*
 
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity(), SourceContract.View {
+class MainActivity : BaseActivity(), SourceContract.View {
 
 
     private lateinit var  sourcePresenter: ImpSourcePresenter
     private lateinit var listOfSource: ArrayList<Source>
-    private lateinit var dialog: BottomSheetDialog
+
 
     lateinit var adapter: SourcesAdapter
 
@@ -32,7 +33,6 @@ class MainActivity : AppCompatActivity(), SourceContract.View {
 
         listOfSource = ArrayList()
         adapter = SourcesAdapter(listOfSource)
-        dialog = BottomSheetDialog(this)
         sourcePresenter = ImpSourcePresenter(this,applicationContext,adapter)
 
         sourcePresenter.attempToGetListOfSource("en","us",listOfSource)
@@ -55,14 +55,5 @@ class MainActivity : AppCompatActivity(), SourceContract.View {
     override fun showErrorMessage(response: Response<List<SourceResponse>>) {
         val errorMessage = ErrorHandler.parseError(response).messageResponse()
         Toast.makeText(applicationContext,errorMessage,Toast.LENGTH_SHORT).show()
-    }
-    override fun showBottomSheet() {
-        val view = layoutInflater.inflate(R.layout.bottom_sheet_dialog, null)
-        dialog.setContentView(view)
-        dialog.show()
-    }
-
-    override fun hideBottomSheet() {
-        dialog.dismiss()
     }
 }

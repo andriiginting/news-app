@@ -82,9 +82,7 @@ class ImpArticlePresenter(articleView: ArticleContract.View,
                 .subscribe { isNetworkAvailable ->
                     if (isNetworkAvailable) {
                         getListArticle(sourcesName, list)
-                        view?.hideBottomSheet()
                     } else {
-                        view?.showBottomSheet()
                         RuntimeException("Not Accepted")
                     }
                 }

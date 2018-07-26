@@ -39,7 +39,6 @@ class ImpSourcePresenter(sourceView: SourceContract.View,
                     if (isNetworkAvailable) {
                         getListOfSources(language, country, listOfSources)
                     } else {
-                        //view?.hideLoadingProgressBar()
                         RuntimeException("Not Accepted")
                     }
                 }
