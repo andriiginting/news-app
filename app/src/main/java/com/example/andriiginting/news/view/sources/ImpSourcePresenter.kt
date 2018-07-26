@@ -74,11 +74,9 @@ class ImpSourcePresenter(sourceView: SourceContract.View,
                             view?.hideLoadingProgressBar()
                         }
                         response.code() == 429 -> {
-                            //view?.showErrorMessage(response)
                             view?.hideLoadingProgressBar()
                         }
                         response.code() == 500 -> {
-                            //view?.showErrorMessage(response)
                             view?.hideLoadingProgressBar()
                         }
                     }

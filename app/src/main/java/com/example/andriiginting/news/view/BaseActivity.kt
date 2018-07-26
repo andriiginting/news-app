@@ -21,17 +21,13 @@ open class BaseActivity : AppCompatActivity(),
             Log.d("koneksi", isConnected.toString())
             showToast(resources.getString(R.string.check_your_internet_connection))
         } else {
-            hideToast()
+
         }
     }
 
     @SuppressLint("WrongConstant")
     override fun showToast(message: String) {
-        Toast.makeText(applicationContext,message,Toast.LENGTH_LONG).duration = -2
-    }
-
-    override fun hideToast() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(applicationContext,message,Toast.LENGTH_LONG).show()
     }
 
     override fun onResume() {
